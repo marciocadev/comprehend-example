@@ -1,14 +1,40 @@
-# Welcome to your CDK TypeScript project!
+# AppConfig Template
 
-This is a blank project for TypeScript development with CDK.
+Este projeto é um cria um stack que interpretará textos com o Amazon Comprehend utilizando a infra criada com o Cloud Development Kit (CDK)
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Payload
+Deverá ser feito um POST com o body no seguinte formato
+```
+{ 
+  "message": "texto que deve ser interpretado" 
+}
+```
 
-## Useful commands
+## Ferramentas
+* AWS-CLI
+* AWS-CDK
+  * npm i -g aws-cdk
+* CFN-DIAGRAM
+  * npm i -g @mhlabs/cfn-diagram
+* IAM Policy Generator
+  * npm i iam-policy-generator
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+## Comandos úteis
+* `npm run build` compila o typescript para javascript
+* `npm run watch` compila ao se alterar algum arquivo
+* `npm run test` executa os teste unitários
+* `npm run test -- --update-snapshot` atualiza o snapshot e executa os testes unitários
+* `cdk synth` sintetiza o Cloudformation a partir do código
+* `cdk deploy` faz o deploy da stack na AWS
+* `cdk diff` compara a stack local com a que foi feito o deploy
+* `cfn-dia html --template-file cdk.out/ComprehendExampleStack.template.json` gera um diagrama e exibe no browser
+* `cfn-dia html --template-file cdk.out/ComprehendExampleStack.template.json --output-path ComprehendExampleStack-html` gera um diagrama e cria uma parta com o html
+* `cfn-dia draw.io --template-file cdk.out/ComprehendExampleStack.template.json --output-file ComprehendExampleStack.drawio` gera um diagrama e cria um arquivo para o Draw.io
+
+## Links úteis
+* Cloudformation Designer
+  * https://console.aws.amazon.com/cloudformation/designer/home?region=us-east-1
+* AWS Policy Generator
+  * https://awspolicygen.s3.amazonaws.com/policygen.html
+* List of all policies
+  * https://awspolicygen.s3.amazonaws.com/js/policies.js
