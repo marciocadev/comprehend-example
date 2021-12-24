@@ -25,9 +25,9 @@ describe('Detect language success', () => {
 
     test('Get Lambda success invocation', async() => {
 
-        const event:EventBridgeEvent<'text',{message:string}> = {
+        const event:EventBridgeEvent<'text',{text:string}> = {
             detail: {
-                message: 'Hello World!!!'
+                text: 'Hello World!!!'
             }
         } as any;
         const context = {} as any;

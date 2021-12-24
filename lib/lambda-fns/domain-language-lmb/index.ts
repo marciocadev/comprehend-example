@@ -6,23 +6,23 @@ import { ComprehendClient, DetectDominantLanguageCommand,
 const client = new ComprehendClient({ region: process.env.AWS_DEFAULT_REGION || 'us-east-1' });
 
 export const handler = async(
-    event: EventBridgeEvent<'text', {message:string}>,
+    event: EventBridgeEvent<'text', {text:string}>,
     context: Context) => {
 
     console.log(event);
 
-    const { message } = event.detail;
+    const { text } = event.detail;
     let result = {};
 
     try {
         const params:DetectDominantLanguageCommandInput 
-            = { Text: message };
+            = { Text: text };
         const command = new DetectDominantLanguageCommand(params);
         const data:DetectDominantLanguageCommandOutput 
             = await client.send(command);
         
         result = {
-            message: message,
+            message: text,
             language: data.Languages
         }
         console.log(result);

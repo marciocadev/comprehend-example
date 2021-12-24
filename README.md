@@ -6,7 +6,7 @@ Este projeto é um cria um stack que interpretará textos com o Amazon Comprehen
 Deverá ser feito um POST com o body no seguinte formato
 ```
 { 
-  "message": "texto que deve ser interpretado" 
+  "text": "texto que deve ser interpretado" 
 }
 ```
 
